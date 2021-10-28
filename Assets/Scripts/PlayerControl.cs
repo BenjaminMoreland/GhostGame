@@ -34,9 +34,11 @@ public class PlayerControl : MonoBehaviour
 
     private void FixedUpdate()
     {
-        //grab input from the user
-        float ySpeed = Input.GetAxisRaw("Vertical") * Speed;
-        float rotSpeed = Input.GetAxisRaw("Horizontal") * RotationSpeed;
+
+        
+    //grab input from the user
+    float ySpeed = Input.GetAxisRaw("Vertical") * Speed;
+    float rotSpeed = Input.GetAxisRaw("Horizontal") * RotationSpeed;
 
         //Add forces and torque
         myRb.AddForce(transform.right * ySpeed * Time.fixedDeltaTime);
