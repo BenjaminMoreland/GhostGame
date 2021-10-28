@@ -25,6 +25,10 @@ public class PlayerControl : MonoBehaviour
         //grab input from the user
         movement.y = Input.GetAxisRaw("Vertical") * Speed;
         movement.x = Input.GetAxisRaw("Horizontal") * Speed;
+        
+    //grab input from the user
+    float ySpeed = Input.GetAxisRaw("Vertical") * Speed;
+    float rotSpeed = Input.GetAxisRaw("Horizontal") * RotationSpeed;
 
         //Add forces and torque
         myRb.AddForce(movement * Time.fixedDeltaTime);
