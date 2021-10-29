@@ -33,7 +33,7 @@ public class PlayerControl : MonoBehaviour
         //First, get the mouse position
         Vector3 mousePosition = Camera.main.ScreenToWorldPoint( Input.mousePosition );
         Vector3 direction = (mousePosition - transform.position).normalized;
-        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg - 90;
         transform.rotation = Quaternion.AngleAxis(angle, transform.forward);
     }
 }
