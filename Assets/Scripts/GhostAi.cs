@@ -1,27 +1,44 @@
+/********************
+
+By: Benjamin Moreland and Ryan Scheppler
+
+Last Edited: 10/28/2021
+
+Description: Ai to make object move in random direction then stop for 1.5 seconds
+
+********************/
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class GhostAi : MonoBehaviour
 {
-    private float latestDirectionChangeTime;
-    private readonly float directionChangeTime = 4f;
-    private float characterVelocity = 1f;
+    public float characterSpeed = 1f;
     private Vector2 movementDirection;
     private Vector2 movementPerSecond;
     public float MaxX;
     public float MinX;
     public float MaxY;
     public float MinY;
+    public Rigidbody2D MyRb;
+    public float pauseTime = 1.5f;
 
     void Start()
     {
-        latestDirectionChangeTime = 0f;
-        calcuateNewMovementVector();
+        //new movement vector is called at the beginning of the game with a speed and direction of 0. So it doesn't move.
+        StartCoroutine(calcuateNewMovementVector(0));
+        //get rigidbody
+        MyRb = GetComponent<Rigidbody2D>();
     }
 
-    void calcuateNewMovementVector()
+    //IEnumerator is used as the base of the function for calculateNewMovementVector,
+    //and the function calls in a new variable which is a float called pause to stop the object.
+    IEnumerator calcuateNewMovementVector(float pause)
     {
+        //return the WaitForSeconds pause thing to the user with a
+        //WaitForSeconds variable that calls in the pause float.
+        yield return new WaitForSeconds(pause);
         //create a random direction vector with the magnitude of 1, later multiply it with the velocity of the enemy
         movementDirection = new Vector2(Random.Range(-1.0f, 1.0f), Random.Range(-1.0f, 1.0f)).normalized;
 
@@ -46,20 +63,42 @@ public class GhostAi : MonoBehaviour
             movementDirection.y = -movementDirection.y;
         }
 
-        movementPerSecond = movementDirection * characterVelocity;
+        movementPerSecond = movementDirection * characterSpeed;
     }
 
-    void Update()
+    void FixedUpdate()
     {
-        //if the changeTime was reached, calculate a new movement vector
-        if (Time.time - latestDirectionChangeTime > directionChangeTime)
+        /*starts coroutines for each axis with a max and min and the pauseTime function stops
+         the object for that period of time defined before the start function with 1.5 seconds as the wait time. */
+        if (transform.position.x > MaxX && movementPerSecond.x > 0)
         {
-            latestDirectionChangeTime = Time.time;
-            calcuateNewMovementVector();
+            StartCoroutine(calcuateNewMovementVector(pauseTime));
+
+            movementPerSecond = Vector2.zero;
+        }
+
+        if (transform.position.y > MaxY && movementPerSecond.y > 0)
+        {
+            StartCoroutine(calcuateNewMovementVector(pauseTime));
+
+            movementPerSecond = Vector2.zero;
+        }
+
+        if (transform.position.x < MinX && movementPerSecond.x < 0)
+        {
+            StartCoroutine(calcuateNewMovementVector(pauseTime));
+
+            movementPerSecond = Vector2.zero;
+        }
+
+        if (transform.position.y < MinY && movementPerSecond.y < 0)
+        {
+            StartCoroutine(calcuateNewMovementVector(pauseTime));
+
+            movementPerSecond = Vector2.zero;
         }
 
         //move enemy: 
-        transform.position = new Vector2(transform.position.x + (movementPerSecond.x * Time.deltaTime),
-        transform.position.y + (movementPerSecond.y * Time.deltaTime));
+        MyRb.velocity = movementPerSecond;
     }
 }
