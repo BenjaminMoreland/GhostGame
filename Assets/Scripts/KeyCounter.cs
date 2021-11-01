@@ -25,6 +25,7 @@ public class KeyCounter : MonoBehaviour
         if (other.tag == "Player")
         {
             other.GetComponent<PlayerControl>().keys++;
+            FindObjectOfType<KeyText>().IncreaseScore();
             Destroy(gameObject);
 
         }
