@@ -2,7 +2,7 @@
 
 By: Benjamin Moreland and Ryan Scheppler
 
-Last Edited: 10/28/2021
+Last Edited: 11/1/2021
 
 Description: Ai to make object move in random direction then stop for 1.5 seconds
 
@@ -100,5 +100,22 @@ public class GhostAi : MonoBehaviour
 
         //move enemy: 
         MyRb.velocity = movementPerSecond;
+    }
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(collision.gameObject.layer == LayerMask.NameToLayer("Flashlight"))
+        {
+            StopAllCoroutines();
+            MyRb.velocity = Vector2.zero;
+            movementPerSecond = Vector2.zero;
+        }
+        
+    }
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.gameObject.layer == LayerMask.NameToLayer("Flashlight"))
+        {
+            StartCoroutine(calcuateNewMovementVector(4));
+        }
     }
 }
