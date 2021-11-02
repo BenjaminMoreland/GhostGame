@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PaceAndChaseAi : MonoBehaviour
 {
-    [Tooltip("This array stores the pints that the AI should move through when pacing.")]
+    [Tooltip("This array stores the points that the AI should move through when pacing.")]
     public Vector3[] Points = { Vector3.zero, new Vector3 (5, 0, 0) };
 
     public float PaceSpeed = 10;
