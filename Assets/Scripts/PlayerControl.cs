@@ -6,6 +6,7 @@ public class PlayerControl : MonoBehaviour
 {
     public float Speed = 500;
     Rigidbody2D myRb;
+    public int keys = 0;
 
  
 
