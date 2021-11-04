@@ -109,6 +109,7 @@ public class GhostAi : MonoBehaviour
             MyRb.velocity = Vector2.zero;
             movementPerSecond = Vector2.zero;
         }
+        
     }
     private void OnTriggerExit2D(Collider2D collision)
     {
