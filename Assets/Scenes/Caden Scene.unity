@@ -275,8 +275,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a312c28dd1f36b54ba05b84e63698cb0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CurrentHealth: 10
-  MaxHealth: 10
+  CurrentHealth: 1
+  MaxHealth: 1
   DestroyAtZero: 1
   InvincTime: 0
 --- !u!95 &68484460
@@ -425,9 +425,9 @@ GameObject:
   m_Component:
   - component: {fileID: 167349905}
   - component: {fileID: 167349912}
-  - component: {fileID: 167349911}
   - component: {fileID: 167349910}
   - component: {fileID: 167349909}
+  - component: {fileID: 167349911}
   - component: {fileID: 167349908}
   - component: {fileID: 167349907}
   - component: {fileID: 167349906}
@@ -447,7 +447,7 @@ Transform:
   m_GameObject: {fileID: 167349904}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 10.8, y: 13.77, z: 1}
-  m_LocalScale: {x: 0.9, y: 0.9, z: 1}
+  m_LocalScale: {x: 1.2, y: 1.2, z: 1}
   m_Children: []
   m_Father: {fileID: 1233411281}
   m_RootOrder: 0
@@ -514,7 +514,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 9.108152, y: 6.826667}
+    oldSize: {x: 9.758735, y: 7.3142858}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -553,23 +553,19 @@ MonoBehaviour:
   m_GameObject: {fileID: 167349904}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1e5555851ca6a8b4d94cd1af120d293d, type: 3}
+  m_Script: {fileID: 11500000, guid: 95526feb5956f9345b4435ba061f3ed2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  characterSpeed: 1
+  ChaseSpeed: 20
+  ChaseDist: 5
+  Target: {fileID: 0}
   MaxX: 0
   MinX: 0
   MaxY: 0
   MinY: 0
+  myRb: {fileID: 0}
   pauseTime: 1.5
-  CloseEnough: 0.1
-  ChaseDist: 15
-  Target: {fileID: 68484457}
-  Points:
-  - {x: 0, y: 0, z: 0}
-  - {x: 5, y: 0, z: 0}
-  PaceSpeed: 1
-  CurrentPoint: 0
-  ChaseSpeed: 1
 --- !u!212 &167349912
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -6930,9 +6926,9 @@ GameObject:
   m_Component:
   - component: {fileID: 798441452}
   - component: {fileID: 798441459}
-  - component: {fileID: 798441458}
   - component: {fileID: 798441457}
   - component: {fileID: 798441456}
+  - component: {fileID: 798441458}
   - component: {fileID: 798441455}
   - component: {fileID: 798441454}
   - component: {fileID: 798441453}
@@ -6952,7 +6948,7 @@ Transform:
   m_GameObject: {fileID: 798441451}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -11.29, y: 17.72, z: 1}
-  m_LocalScale: {x: 0.9, y: 0.9, z: 1}
+  m_LocalScale: {x: 1.2, y: 1.2, z: 1}
   m_Children: []
   m_Father: {fileID: 1233411281}
   m_RootOrder: 1
@@ -7019,7 +7015,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 9.108152, y: 6.826667}
+    oldSize: {x: 9.758735, y: 7.3142858}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -7058,23 +7054,19 @@ MonoBehaviour:
   m_GameObject: {fileID: 798441451}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1e5555851ca6a8b4d94cd1af120d293d, type: 3}
+  m_Script: {fileID: 11500000, guid: 95526feb5956f9345b4435ba061f3ed2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  characterSpeed: 1
+  ChaseSpeed: 20
+  ChaseDist: 5
+  Target: {fileID: 0}
   MaxX: 0
   MinX: 0
   MaxY: 0
   MinY: 0
+  myRb: {fileID: 0}
   pauseTime: 1.5
-  CloseEnough: 0.1
-  ChaseDist: 15
-  Target: {fileID: 68484457}
-  Points:
-  - {x: 0, y: 0, z: 0}
-  - {x: 5, y: 0, z: 0}
-  PaceSpeed: 1
-  CurrentPoint: 0
-  ChaseSpeed: 1
 --- !u!212 &798441459
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -7388,9 +7380,9 @@ GameObject:
   m_Component:
   - component: {fileID: 979615364}
   - component: {fileID: 979615371}
-  - component: {fileID: 979615370}
   - component: {fileID: 979615369}
   - component: {fileID: 979615368}
+  - component: {fileID: 979615370}
   - component: {fileID: 979615367}
   - component: {fileID: 979615366}
   - component: {fileID: 979615365}
@@ -7410,7 +7402,7 @@ Transform:
   m_GameObject: {fileID: 979615363}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -2.46, y: 18.13, z: 1}
-  m_LocalScale: {x: 0.9, y: 0.9, z: 1}
+  m_LocalScale: {x: 1.2, y: 1.2, z: 1}
   m_Children: []
   m_Father: {fileID: 1233411281}
   m_RootOrder: 3
@@ -7477,7 +7469,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 9.108152, y: 6.826667}
+    oldSize: {x: 9.758735, y: 7.3142858}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -7516,23 +7508,19 @@ MonoBehaviour:
   m_GameObject: {fileID: 979615363}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1e5555851ca6a8b4d94cd1af120d293d, type: 3}
+  m_Script: {fileID: 11500000, guid: 95526feb5956f9345b4435ba061f3ed2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  characterSpeed: 1
+  ChaseSpeed: 20
+  ChaseDist: 5
+  Target: {fileID: 0}
   MaxX: 0
   MinX: 0
   MaxY: 0
   MinY: 0
+  myRb: {fileID: 0}
   pauseTime: 1.5
-  CloseEnough: 0.1
-  ChaseDist: 15
-  Target: {fileID: 68484457}
-  Points:
-  - {x: 0, y: 0, z: 0}
-  - {x: 5, y: 0, z: 0}
-  PaceSpeed: 1
-  CurrentPoint: 0
-  ChaseSpeed: 1
 --- !u!212 &979615371
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -7876,9 +7864,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1513498326}
   - component: {fileID: 1513498333}
-  - component: {fileID: 1513498332}
   - component: {fileID: 1513498331}
   - component: {fileID: 1513498330}
+  - component: {fileID: 1513498332}
   - component: {fileID: 1513498329}
   - component: {fileID: 1513498328}
   - component: {fileID: 1513498327}
@@ -7898,7 +7886,7 @@ Transform:
   m_GameObject: {fileID: 1513498325}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -12.63, y: -4.75, z: 1}
-  m_LocalScale: {x: 0.9, y: 0.9, z: 1}
+  m_LocalScale: {x: 1.2, y: 1.2, z: 1}
   m_Children: []
   m_Father: {fileID: 1233411281}
   m_RootOrder: 2
@@ -7965,7 +7953,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 9.108152, y: 6.826667}
+    oldSize: {x: 9.758735, y: 7.3142858}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -8004,23 +7992,19 @@ MonoBehaviour:
   m_GameObject: {fileID: 1513498325}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1e5555851ca6a8b4d94cd1af120d293d, type: 3}
+  m_Script: {fileID: 11500000, guid: 95526feb5956f9345b4435ba061f3ed2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  characterSpeed: 1
+  ChaseSpeed: 20
+  ChaseDist: 5
+  Target: {fileID: 0}
   MaxX: 0
   MinX: 0
   MaxY: 0
   MinY: 0
+  myRb: {fileID: 0}
   pauseTime: 1.5
-  CloseEnough: 0.1
-  ChaseDist: 15
-  Target: {fileID: 68484457}
-  Points:
-  - {x: 0, y: 0, z: 0}
-  - {x: 5, y: 0, z: 0}
-  PaceSpeed: 1
-  CurrentPoint: 0
-  ChaseSpeed: 1
 --- !u!212 &1513498333
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -8298,9 +8282,9 @@ GameObject:
   m_Component:
   - component: {fileID: 2021183486}
   - component: {fileID: 2021183493}
-  - component: {fileID: 2021183490}
   - component: {fileID: 2021183492}
   - component: {fileID: 2021183491}
+  - component: {fileID: 2021183490}
   - component: {fileID: 2021183489}
   - component: {fileID: 2021183488}
   - component: {fileID: 2021183487}
@@ -8320,7 +8304,7 @@ Transform:
   m_GameObject: {fileID: 2021183485}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 17.27, y: -5.23, z: 1}
-  m_LocalScale: {x: 0.9, y: 0.9, z: 1}
+  m_LocalScale: {x: 1.2, y: 1.2, z: 1}
   m_Children: []
   m_Father: {fileID: 1233411281}
   m_RootOrder: 4
@@ -8379,23 +8363,19 @@ MonoBehaviour:
   m_GameObject: {fileID: 2021183485}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1e5555851ca6a8b4d94cd1af120d293d, type: 3}
+  m_Script: {fileID: 11500000, guid: 95526feb5956f9345b4435ba061f3ed2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  characterSpeed: 1
+  ChaseSpeed: 20
+  ChaseDist: 5
+  Target: {fileID: 0}
   MaxX: 0
   MinX: 0
   MaxY: 0
   MinY: 0
+  myRb: {fileID: 0}
   pauseTime: 1.5
-  CloseEnough: 0.1
-  ChaseDist: 15
-  Target: {fileID: 68484457}
-  Points:
-  - {x: 0, y: 0, z: 0}
-  - {x: 5, y: 0, z: 0}
-  PaceSpeed: 1
-  CurrentPoint: 0
-  ChaseSpeed: 1
 --- !u!61 &2021183491
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -8413,7 +8393,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 9.108152, y: 6.826667}
+    oldSize: {x: 9.758735, y: 7.3142858}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
