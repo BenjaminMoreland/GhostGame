@@ -2,11 +2,17 @@
 
 By: Benjamin Moreland and Ryan Scheppler
 
-Last Edited: 11/1/2021
+Last Edited: 11/4/2021
 
 Description: Ai to make object move in random direction then stop for 1.5 seconds
 
 ********************/
+
+//GOALS
+/**
+ * Create timer function
+ *  While ghosts are under mask for flashlight timer ghosts can move again toward player
+ **/
 
 using System.Collections;
 using System.Collections.Generic;
@@ -17,11 +23,16 @@ public class GhostAi : MonoBehaviour
     public float characterSpeed = 1f;
     private Vector2 movementDirection;
     private Vector2 movementPerSecond;
+    public float ChaseSpeed = 20;
+    [Tooltip("How close should the target be before chasing it.")]
+    public float ChaseDist = 5;
+    [Tooltip("drag in the game object you want chased, will only pace without.")]
+    public GameObject Target;
     public float MaxX;
     public float MinX;
     public float MaxY;
     public float MinY;
-    public Rigidbody2D MyRb;
+    public Rigidbody2D myRb;
     public float pauseTime = 1.5f;
 
     void Start()
@@ -29,7 +40,7 @@ public class GhostAi : MonoBehaviour
         //new movement vector is called at the beginning of the game with a speed and direction of 0. So it doesn't move.
         StartCoroutine(calcuateNewMovementVector(0));
         //get rigidbody
-        MyRb = GetComponent<Rigidbody2D>();
+        myRb = GetComponent<Rigidbody2D>();
     }
 
     //IEnumerator is used as the base of the function for calculateNewMovementVector,
@@ -99,15 +110,31 @@ public class GhostAi : MonoBehaviour
         }
 
         //move enemy: 
-        MyRb.velocity = movementPerSecond;
+        myRb.velocity = movementPerSecond;
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if(collision.gameObject.layer == LayerMask.NameToLayer("Flashlight"))
         {
             StopAllCoroutines();
-            MyRb.velocity = Vector2.zero;
+            myRb.velocity = Vector2.zero;
             movementPerSecond = Vector2.zero;
+            if (Target != null)
+            {
+                //Check distance to target to see wether you pace or chase
+                Vector2 direction = Target.transform.position - transform.position;
+            if (direction.sqrMagnitude <= ChaseDist * ChaseDist)
+            {
+                Chase(direction);
+            }
+        }
+
+            void Chase(Vector2 direction)
+            {
+                //Set the speed towards the next point
+                Vector2 acceleration = direction.normalized * ChaseSpeed * Time.fixedDeltaTime;
+                myRb.velocity += acceleration;
+            }
         }
         
     }
