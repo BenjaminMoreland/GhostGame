@@ -2,7 +2,7 @@
 
 By: Benjamin Moreland and Ryan Scheppler
 
-Last Edited: 11/1/2021
+Last Edited: 11/12/2021
 
 Description: Ai to make object move in random direction then stop for 1.5 seconds
 
