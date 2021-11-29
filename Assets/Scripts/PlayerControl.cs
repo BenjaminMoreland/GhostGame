@@ -8,18 +8,14 @@ public class PlayerControl : MonoBehaviour
     Rigidbody2D myRb;
     public int keys = 0;
 
- 
-
     // Start is called before the first frame update
     void Start()
     {
         myRb = GetComponent<Rigidbody2D>();
         //grab the camera
-        
     }
 
     //fixed update runs on physics times0
-
     private void FixedUpdate()
     {
         Vector2 movement = Vector2.zero;
